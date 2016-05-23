@@ -22,13 +22,16 @@ def split():
 		fout.write("\n")
 
 	sys.stdout.write("Splitted %s bytes in %s lines \n\n" % (totalbytes,lines))
-	sys.stdout.write("End excution.")
+	sys.stdout.write("End excution.\n")
 
 def verifyParameters(argv):
 
-	parser = argparse.ArgumentParser(description='Splitter script will split one file in multiple lines')
-	parser.add_argument('-i','--inputfile', dest="filename", metavar="FILE",  help='Input filename', required=True)
-	parser.add_argument('-b','--bytes', dest="bytes", help='Number of bytes per line', required=True)
+	parser = argparse.ArgumentParser(
+		description='Splitter script will split one file in multiple lines')
+	parser.add_argument('-i','--inputfile', dest="filename", metavar="STRING", 
+	 	help='Input filename, Relative of Full Path', required=True)
+	parser.add_argument('-b','--bytes', dest="bytes", metavar="INT",
+	 	help='Number of bytes to break each lineline', required=True)
 	
 	args = vars(parser.parse_args())
 
